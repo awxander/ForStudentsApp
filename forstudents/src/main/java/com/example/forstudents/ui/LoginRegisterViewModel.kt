@@ -7,6 +7,7 @@ import android.util.Patterns
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.example.forstudents.R
 import com.example.forstudents.data.model.UserLoginModel
 import com.example.forstudents.data.model.UserRegisterModel
 
@@ -16,48 +17,53 @@ import kotlinx.coroutines.launch
 
 class LoginRegisterViewModel(private val loginRepository: LoginRepository) : ViewModel() {
 
-    private val _state: MutableLiveData<RegisterLoginState> = MutableLiveData(RegisterLoginState.Initial)
+    private val _registerLoginState: MutableLiveData<RegisterLoginState> = MutableLiveData(RegisterLoginState.Initial)
+    private val _formState: MutableLiveData<FormState> = MutableLiveData()
 
-    val state: LiveData<RegisterLoginState> = _state
+    val registerLoginState: LiveData<RegisterLoginState> = _registerLoginState
+    val formState: LiveData<FormState> = _formState
 
     fun login(userLoginModel: UserLoginModel){
         viewModelScope.launch {
-            _state.value = RegisterLoginState.Loading
+            _registerLoginState.value = RegisterLoginState.Loading
             try {
                 val token = loginRepository.loginUser(userLoginModel)
                 Log.i(javaClass.simpleName, "got info")
-                _state.value = RegisterLoginState.Content(token)
+                _registerLoginState.value = RegisterLoginState.Content(token)
             } catch (e: Exception) {
                 handleException(e)
             }
-            _state.value = RegisterLoginState.Initial
+            _registerLoginState.value = RegisterLoginState.Initial
         }
     }
 
     private fun handleException(e: Exception){
         Log.e(TAG, e.message.orEmpty())
-        _state.value = RegisterLoginState.Error(e.message.orEmpty())
+        _registerLoginState.value = RegisterLoginState.Error(e.message.orEmpty())
     }
 
     fun register(userRegisterModel: UserRegisterModel){
     }
 
-    fun loginDataChanged(username: String, password: String) {
-        if (!isUserNameValid(username)) {
-            _state.value = RegisterLoginState.Error("not a valid username ")
+
+    fun loginDataChanged(email: String, password: String) {
+        if (!isUserNameValid(email)) {
+            _formState.value = FormState(usernameError = R.string.invalid_email)
         } else if (!isPasswordValid(password)) {
-            _state.value = RegisterLoginState.Error("password in not valid ")
+            _formState.value = FormState(passwordError = R.string.invalid_password)
+        } else {
+            _formState.value = FormState(isDataValid = true)
         }
     }
 
 
 
     // A placeholder username validation check
-    private fun isUserNameValid(username: String): Boolean {
-        return if (username.contains('@')) {
-            Patterns.EMAIL_ADDRESS.matcher(username).matches()
+    private fun isUserNameValid(email: String): Boolean {
+        return if (email.contains('@')) {
+            Patterns.EMAIL_ADDRESS.matcher(email).matches()
         } else {
-            username.isNotBlank()
+            email.isNotBlank()
         }
     }
 
