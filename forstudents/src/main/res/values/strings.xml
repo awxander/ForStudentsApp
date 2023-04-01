@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">ForSudents</string>
+    <string name="invalid_email">username is invalid</string>
+    <string name="invalid_password">password must be more than 5 symbols</string>
 </resources>
