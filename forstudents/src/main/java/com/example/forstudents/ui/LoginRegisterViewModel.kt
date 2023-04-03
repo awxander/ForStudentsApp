@@ -59,10 +59,10 @@ class LoginRegisterViewModel(private val loginRepository: LoginRepository) : Vie
 
     fun registerDataChanged(registerData: RegisterData){
         if (!isEmailValid(registerData.email)) {
-            _formState.value = FormState(usernameError = R.string.invalid_email)
+            _formState.value = FormState(emailError = R.string.invalid_email)
         } else if (!isPasswordValid(registerData.password)) {
             _formState.value = FormState(passwordError = R.string.invalid_password)
-        } else if (isUserNameValid(registerData.username)){
+        } else if (!isUserNameValid(registerData.username)){
             _formState.value = FormState(usernameError = R.string.invalid_username)
         } else if(registerData.password != registerData.passwordCopy){
             _formState.value = FormState(reenteredPasswordError = R.string.different_passwords)
