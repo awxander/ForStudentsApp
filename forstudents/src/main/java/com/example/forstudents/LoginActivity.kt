@@ -1,5 +1,6 @@
 package com.example.forstudents
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -40,23 +41,18 @@ class LoginActivity : AppCompatActivity() {
                     )
                 )
             }
-
             emailEditText.afterTextChanged {
                 loginRegisterViewModel.loginDataChanged(
                     emailEditText.text.toString(),
                     passwordEditText.text.toString(),
                 )
             }
-
-            passwordEditText.apply {
-                afterTextChanged {
-                    loginRegisterViewModel.loginDataChanged(
-                        emailEditText.text.toString(),
-                        passwordEditText.text.toString()
-                    )
-                }
+            passwordEditText.afterTextChanged {
+                loginRegisterViewModel.loginDataChanged(
+                    emailEditText.text.toString(),
+                    passwordEditText.text.toString()
+                )
             }
-
         }
     }
 
@@ -72,9 +68,16 @@ class LoginActivity : AppCompatActivity() {
         when (state) {
             RegisterLoginState.Initial -> Unit
             RegisterLoginState.Loading -> Unit //add progress bar
-            is RegisterLoginState.Content -> Unit
+            is RegisterLoginState.Content -> {
+                startMainActivity()
+            }
             is RegisterLoginState.Error -> showErrorMsg(state.text)
         }
+    }
+
+    private fun startMainActivity() {
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
     }
 
     private fun showErrorMsg(errorMsg: String) {
