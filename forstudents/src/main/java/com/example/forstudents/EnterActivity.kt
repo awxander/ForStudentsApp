@@ -2,7 +2,7 @@ package com.example.forstudents
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
+import android.os.Bundle import androidx.appcompat.app.AppCompatDelegate
 import com.example.forstudents.databinding.ActivityEnterBinding
 
 class EnterActivity : AppCompatActivity() {
@@ -13,6 +13,7 @@ class EnterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityEnterBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         setButtonsListeners()
     }
 
