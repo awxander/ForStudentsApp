@@ -67,7 +67,7 @@ class LoginActivity : AppCompatActivity() {
     private fun handleLoginState(state: RegisterLoginState) {
         when (state) {
             RegisterLoginState.Initial -> Unit
-            RegisterLoginState.Loading -> Unit //add progress bar
+            RegisterLoginState.Loading -> Unit //TODO add progress bar
             is RegisterLoginState.Content -> {
                 startMainActivity()
             }
