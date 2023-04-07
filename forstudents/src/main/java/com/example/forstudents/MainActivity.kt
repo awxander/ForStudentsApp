@@ -57,7 +57,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun showBottomNav() {
-        binding.bottomNavigationView.visibility = View.VISIBLE
+        val slideUp = AnimationUtils.loadAnimation(this, R.anim.slide_up)
+        binding.bottomNavigationView.apply {
+            startAnimation(slideUp)
+            visibility = View.VISIBLE
+        }
     }
 
 
