@@ -12,7 +12,7 @@ import com.example.forstudents.databinding.FragmentMessagesBinding
 class MessagesFragment : Fragment() {
 
     private lateinit var binding : FragmentMessagesBinding
-    private val actionBar  = (activity as AppCompatActivity).supportActionBar
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -21,7 +21,5 @@ class MessagesFragment : Fragment() {
         binding = FragmentMessagesBinding.inflate(inflater)
         return binding.root
     }
-
-
 
 }

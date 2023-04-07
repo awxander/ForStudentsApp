@@ -103,7 +103,7 @@ class RegisterActivity : AppCompatActivity() {
     private fun handleRegisterState(state: RegisterLoginState) {
         when (state) {
             RegisterLoginState.Initial -> Unit
-            RegisterLoginState.Loading -> Unit //add progress bar
+            RegisterLoginState.Loading -> Unit //TODO add progress bar
             is RegisterLoginState.Content -> {
                 startMainActivity()
             }
@@ -113,6 +113,7 @@ class RegisterActivity : AppCompatActivity() {
 
     private fun startMainActivity() {
         val intent = Intent(this, MainActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
         startActivity(intent)
     }
 
