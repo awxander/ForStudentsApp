@@ -2,6 +2,8 @@ package com.example.forstudents
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.view.animation.AnimationUtils
 import androidx.fragment.app.Fragment
 import com.example.forstudents.databinding.ActivityMainBinding
 import com.example.forstudents.fragments.MessagesFragment
@@ -45,6 +47,18 @@ class MainActivity : AppCompatActivity() {
             replace(R.id.fragmentContainerView, fragment)
             commit()
         }
+
+    fun hideBottomNav() {
+        val slideDown = AnimationUtils.loadAnimation(this, R.anim.slide_down)
+        binding.bottomNavigationView.apply {
+            startAnimation(slideDown)
+            visibility = View.GONE
+        }
+    }
+
+    fun showBottomNav() {
+        binding.bottomNavigationView.visibility = View.VISIBLE
+    }
 
 
 }
