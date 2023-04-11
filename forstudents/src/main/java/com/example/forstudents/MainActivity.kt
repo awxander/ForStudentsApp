@@ -49,18 +49,22 @@ class MainActivity : AppCompatActivity() {
         }
 
     fun hideBottomNav() {
-        val slideDown = AnimationUtils.loadAnimation(this, R.anim.slide_down)
-        binding.bottomNavigationView.apply {
-            startAnimation(slideDown)
-            visibility = View.GONE
+        if (binding.bottomNavigationView.visibility == View.VISIBLE) {
+            val slideDown = AnimationUtils.loadAnimation(this, R.anim.slide_down)
+            binding.bottomNavigationView.apply {
+                startAnimation(slideDown)
+                visibility = View.GONE
+            }
         }
     }
 
     fun showBottomNav() {
-        val slideUp = AnimationUtils.loadAnimation(this, R.anim.slide_up)
-        binding.bottomNavigationView.apply {
-            startAnimation(slideUp)
-            visibility = View.VISIBLE
+        if (binding.bottomNavigationView.visibility != View.VISIBLE) {
+            val slideUp = AnimationUtils.loadAnimation(this, R.anim.slide_up)
+            binding.bottomNavigationView.apply {
+                startAnimation(slideUp)
+                visibility = View.VISIBLE
+            }
         }
     }
 
