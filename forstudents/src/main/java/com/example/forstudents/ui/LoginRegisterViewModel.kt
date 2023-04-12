@@ -11,12 +11,12 @@ import com.example.forstudents.R
 import com.example.forstudents.data.local.RegisterData
 import com.example.forstudents.data.model.UserLoginModel
 import com.example.forstudents.data.model.UserRegisterModel
+import com.example.forstudents.domain.repository.ForStudentsRepository
 
-import com.example.forstudents.data.repository.LoginRepository
 import com.example.forstudents.util.TAG
 import kotlinx.coroutines.launch
 
-class LoginRegisterViewModel(private val loginRepository: LoginRepository) : ViewModel() {
+class LoginRegisterViewModel(private val forStudentsRepository: ForStudentsRepository) : ViewModel() {
 
     private val _registerLoginState: MutableLiveData<RegisterLoginState> = MutableLiveData(RegisterLoginState.Initial)
     private val _formState: MutableLiveData<FormState> = MutableLiveData()
@@ -28,7 +28,7 @@ class LoginRegisterViewModel(private val loginRepository: LoginRepository) : Vie
         viewModelScope.launch {
             _registerLoginState.value = RegisterLoginState.Loading
             try {
-                val token = loginRepository.loginUser(userLoginModel)
+                val token = forStudentsRepository.loginUser(userLoginModel)
                 Log.i(javaClass.simpleName, "got info")
                 _registerLoginState.value = RegisterLoginState.Content(token)
             } catch (e: Exception) {
@@ -47,7 +47,7 @@ class LoginRegisterViewModel(private val loginRepository: LoginRepository) : Vie
         viewModelScope.launch {
             _registerLoginState.value = RegisterLoginState.Loading
             try {
-                val token = loginRepository.registerUser(userRegisterModel)
+                val token = forStudentsRepository.registerUser(userRegisterModel)
                 Log.i(javaClass.simpleName, "got info")
                 _registerLoginState.value = RegisterLoginState.Content(token)
             } catch (e: Exception) {

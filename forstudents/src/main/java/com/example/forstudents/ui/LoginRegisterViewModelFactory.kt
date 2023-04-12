@@ -2,7 +2,7 @@ package com.example.forstudents.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.forstudents.data.repository.LoginRepository
+import com.example.forstudents.data.repository.ForStudentsRepositoryImpl
 
 /**
  * ViewModel provider factory to instantiate LoginViewModel.
@@ -14,8 +14,7 @@ class LoginRegisterViewModelFactory : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(LoginRegisterViewModel::class.java)) {
             return LoginRegisterViewModel(
-                loginRepository = LoginRepository(
-                )
+                forStudentsRepository = ForStudentsRepositoryImpl()
             ) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
