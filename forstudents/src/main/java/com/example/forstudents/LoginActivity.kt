@@ -7,10 +7,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.forstudents.data.model.UserLoginModel
 import com.example.forstudents.databinding.ActivityLoginBinding
-import com.example.forstudents.ui.FormState
-import com.example.forstudents.ui.LoginRegisterViewModel
-import com.example.forstudents.ui.LoginRegisterViewModelFactory
-import com.example.forstudents.ui.RegisterLoginState
+import com.example.forstudents.presentsion.FormState
+import com.example.forstudents.presentsion.LoginRegisterViewModel
+import com.example.forstudents.presentsion.LoginRegisterViewModelFactory
+import com.example.forstudents.presentsion.RegisterLoginState
 import com.example.forstudents.util.afterTextChanged
 
 class LoginActivity : AppCompatActivity() {

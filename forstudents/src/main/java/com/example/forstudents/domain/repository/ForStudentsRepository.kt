@@ -12,5 +12,5 @@ interface ForStudentsRepository {
 
     suspend fun registerUser(userRegisterModel: UserRegisterModel) : TokenModel
 
-    suspend fun askQuestion(@Body questionModel: QuestionModel)
+    suspend fun askQuestion(questionModel: QuestionModel)
 }

@@ -5,15 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
-import com.example.forstudents.data.local.RegisterData
-import com.example.forstudents.data.model.UserLoginModel
 import com.example.forstudents.data.model.UserRegisterModel
-import com.example.forstudents.databinding.ActivityLoginBinding
 import com.example.forstudents.databinding.ActivityRegisterBinding
-import com.example.forstudents.ui.FormState
-import com.example.forstudents.ui.LoginRegisterViewModel
-import com.example.forstudents.ui.LoginRegisterViewModelFactory
-import com.example.forstudents.ui.RegisterLoginState
+import com.example.forstudents.presentsion.*
 import com.example.forstudents.util.afterTextChanged
 
 class RegisterActivity : AppCompatActivity() {

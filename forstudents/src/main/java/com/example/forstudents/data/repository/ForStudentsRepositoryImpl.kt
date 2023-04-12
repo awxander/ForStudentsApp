@@ -3,7 +3,7 @@ package com.example.forstudents.data.repository
 import com.example.forstudents.data.model.QuestionModel
 import com.example.forstudents.data.model.UserLoginModel
 import com.example.forstudents.data.model.UserRegisterModel
-import com.example.forstudents.data.remote.ForStudentsApi
+import com.example.forstudents.data.api.ForStudentsApi
 import com.example.forstudents.domain.repository.ForStudentsRepository
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
