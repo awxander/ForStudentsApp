@@ -20,10 +20,11 @@
         <action
             android:id="@+id/action_questionsFragment_to_newQuestionFragment"
             app:destination="@id/newQuestionFragment"
-            app:enterAnim="@anim/slide_up"
-            app:exitAnim="@anim/slide_down"
-            app:popEnterAnim="@anim/slide_up"
-            app:popExitAnim="@anim/slide_down" />
+            />
+<!--            app:enterAnim="@anim/slide_up"-->
+<!--            app:exitAnim="@anim/slide_down"-->
+<!--            app:popEnterAnim="@anim/slide_up"-->
+<!--            app:popExitAnim="@anim/slide_down"-->
     </fragment>
 
 </navigation>
