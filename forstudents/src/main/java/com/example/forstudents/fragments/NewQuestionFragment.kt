@@ -13,6 +13,7 @@ class NewQuestionFragment : Fragment() {
     private lateinit var binding: FragmentNewQuestionBinding
     private val navController get() = findNavController()
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -21,6 +22,15 @@ class NewQuestionFragment : Fragment() {
         //TODO пофиксить хуйню с
         // закрытием приложения на back
         return binding.root
+    }
+
+
+    private fun setListeners(){
+        binding.apply {
+            askButton.setOnClickListener {
+
+            }
+        }
     }
 
 
