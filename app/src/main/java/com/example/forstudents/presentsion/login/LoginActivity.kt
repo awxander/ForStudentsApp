@@ -1,4 +1,4 @@
-package com.example.forstudents.ui.login
+package com.example.forstudents.presentsion.login
 
 import android.app.Activity
 import androidx.lifecycle.Observer

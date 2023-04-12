@@ -1,4 +1,4 @@
-package com.example.forstudents.ui
+package com.example.forstudents.presentsion
 
 
 import android.util.Log
@@ -8,28 +8,31 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.forstudents.R
-import com.example.forstudents.data.local.RegisterData
 import com.example.forstudents.data.model.UserLoginModel
 import com.example.forstudents.data.model.UserRegisterModel
-import com.example.forstudents.domain.repository.ForStudentsRepository
+import com.example.forstudents.domain.usecase.LoginUseCase
+import com.example.forstudents.domain.usecase.RegisterUseCase
 
 import com.example.forstudents.util.TAG
 import kotlinx.coroutines.launch
 
-class LoginRegisterViewModel(private val forStudentsRepository: ForStudentsRepository) : ViewModel() {
+class LoginRegisterViewModel(
+    private val loginUseCase: LoginUseCase,
+    private val registerUseCase: RegisterUseCase
+) : ViewModel() {
 
     private val _registerLoginState: MutableLiveData<RegisterLoginState> = MutableLiveData(RegisterLoginState.Initial)
-    private val _formState: MutableLiveData<FormState> = MutableLiveData()
-
     val registerLoginState: LiveData<RegisterLoginState> = _registerLoginState
+
+    private val _formState: MutableLiveData<FormState> = MutableLiveData()
     val formState: LiveData<FormState> = _formState
 
     fun login(userLoginModel: UserLoginModel){
         viewModelScope.launch {
             _registerLoginState.value = RegisterLoginState.Loading
             try {
-                val token = forStudentsRepository.loginUser(userLoginModel)
-                Log.i(javaClass.simpleName, "got info")
+                val token = loginUseCase.execute(userLoginModel)
+                Log.i(javaClass.simpleName, "successfully got token")
                 _registerLoginState.value = RegisterLoginState.Content(token)
             } catch (e: Exception) {
                 handleException(e)
@@ -47,8 +50,8 @@ class LoginRegisterViewModel(private val forStudentsRepository: ForStudentsRepos
         viewModelScope.launch {
             _registerLoginState.value = RegisterLoginState.Loading
             try {
-                val token = forStudentsRepository.registerUser(userRegisterModel)
-                Log.i(javaClass.simpleName, "got info")
+                val token = registerUseCase.execute(userRegisterModel)
+                Log.i(javaClass.simpleName, "successfully got token")
                 _registerLoginState.value = RegisterLoginState.Content(token)
             } catch (e: Exception) {
                 handleException(e)

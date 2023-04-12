@@ -1,4 +1,4 @@
-package com.example.forstudents.data.local
+package com.example.forstudents.presentsion
 
 data class RegisterData(
     val email: String,

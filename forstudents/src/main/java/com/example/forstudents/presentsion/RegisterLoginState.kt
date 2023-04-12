@@ -1,4 +1,4 @@
-package com.example.forstudents.ui
+package com.example.forstudents.presentsion
 
 import com.example.forstudents.data.model.TokenModel
 
@@ -11,4 +11,5 @@ sealed interface RegisterLoginState {
     data class Content(val token: TokenModel) : RegisterLoginState
 
     data class Error(val text: String) : RegisterLoginState
+
 }

@@ -1,11 +1,10 @@
-package com.example.forstudents.data.remote
+package com.example.forstudents.data.api
 
 import com.example.forstudents.data.model.QuestionModel
 import com.example.forstudents.data.model.TokenModel
 import com.example.forstudents.data.model.UserLoginModel
 import com.example.forstudents.data.model.UserRegisterModel
 import retrofit2.http.Body
-import retrofit2.http.Header
 import retrofit2.http.Headers
 import retrofit2.http.POST
 

@@ -1,4 +1,4 @@
-package com.example.forstudents.ui.login
+package com.example.forstudents.presentsion.login
 
 /**
  * Data validation state of the login form.
