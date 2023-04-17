@@ -5,15 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
-import com.example.forstudents.data.local.RegisterData
-import com.example.forstudents.data.model.UserLoginModel
 import com.example.forstudents.data.model.UserRegisterModel
-import com.example.forstudents.databinding.ActivityLoginBinding
 import com.example.forstudents.databinding.ActivityRegisterBinding
-import com.example.forstudents.ui.FormState
-import com.example.forstudents.ui.LoginRegisterViewModel
-import com.example.forstudents.ui.LoginRegisterViewModelFactory
-import com.example.forstudents.ui.RegisterLoginState
+import com.example.forstudents.presentsion.*
 import com.example.forstudents.util.afterTextChanged
 
 class RegisterActivity : AppCompatActivity() {
@@ -103,7 +97,7 @@ class RegisterActivity : AppCompatActivity() {
     private fun handleRegisterState(state: RegisterLoginState) {
         when (state) {
             RegisterLoginState.Initial -> Unit
-            RegisterLoginState.Loading -> Unit //add progress bar
+            RegisterLoginState.Loading -> Unit //TODO add progress bar
             is RegisterLoginState.Content -> {
                 startMainActivity()
             }
@@ -113,6 +107,7 @@ class RegisterActivity : AppCompatActivity() {
 
     private fun startMainActivity() {
         val intent = Intent(this, MainActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
         startActivity(intent)
     }
 
