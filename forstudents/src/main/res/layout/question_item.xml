@@ -19,7 +19,7 @@
                 android:id="@+id/tvTopic"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="topic: topicname"
+                android:text="topic"
                 android:textColor="@color/black"
                 android:textSize="35sp" />
         </TableRow>

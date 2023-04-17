@@ -4,11 +4,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.animation.AnimationUtils
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
+import com.example.forstudents.data.repository.ForStudentsRepositoryImpl
 import com.example.forstudents.databinding.ActivityMainBinding
 import com.example.forstudents.fragments.MessagesFragment
 import com.example.forstudents.fragments.ProfileFragment
 import com.example.forstudents.fragments.QuestionsFragment
+import com.example.forstudents.presentsion.QuestionViewModel
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,12 +20,16 @@ class MainActivity : AppCompatActivity() {
     private val profileFragment = ProfileFragment()
     private val messagesFragment = MessagesFragment()
     private val questionsFragment = QuestionsFragment()
+    val repository = ForStudentsRepositoryImpl()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setBottomNav()
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)//выключил night mode
+        //TODO перенести в Application
     }
 
     private fun setBottomNav() {

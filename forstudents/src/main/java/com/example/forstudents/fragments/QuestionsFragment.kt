@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.forstudents.databinding.FragmentQuestionsBinding
 import com.example.forstudents.util.hideBottomNavigation
-import com.example.forstudents.util.showBackStackInLog
 import com.example.forstudents.util.showBottomNavigation
 
 class QuestionsFragment : Fragment() {

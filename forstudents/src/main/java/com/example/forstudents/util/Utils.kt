@@ -32,7 +32,7 @@ fun Fragment.showBottomNavigation() {
     activity.showBottomNav()
 }
 
-fun Fragment.showBackStackInLog() {
+fun Fragment.printBackStackInLog() {
     val backStackCount = requireFragmentManager().backStackEntryCount
 
     if (backStackCount > 0) {
@@ -40,7 +40,7 @@ fun Fragment.showBackStackInLog() {
         for (i in 0 until backStackCount) {
             val backStackEntry = fragmentManager?.getBackStackEntryAt(i)
             val fragmentTag = backStackEntry?.name
-            Log.i(TAG, "$i fragment on stack: ${fragmentTag!!}")
+            Log.i(TAG, "$i fragment on stack, tag: ${fragmentTag!!}")
             // Do something with the fragment tag, e.g. log or use in UI
         }
     } else {
