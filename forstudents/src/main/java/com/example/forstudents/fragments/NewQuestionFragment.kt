@@ -54,7 +54,7 @@ class NewQuestionFragment : Fragment() {
             QuestionState.Initial -> {
             }
             QuestionState.Loading -> {
-            }//TODO()
+            }//TODO() добавить progress bar
             QuestionState.Success -> {
                 finish()
             }

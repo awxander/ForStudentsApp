@@ -1,10 +1,8 @@
 package com.example.forstudents.data.api
 
-import com.example.forstudents.data.model.QuestionModel
-import com.example.forstudents.data.model.TokenModel
-import com.example.forstudents.data.model.UserLoginModel
-import com.example.forstudents.data.model.UserRegisterModel
+import com.example.forstudents.data.model.*
 import retrofit2.http.Body
+import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.POST
 
@@ -23,5 +21,9 @@ interface ForStudentsApi {
     @Headers(TOKEN)
     @POST("questions/new")
     suspend fun askQuestion(@Body questionModel: QuestionModel)
+
+    @Headers(TOKEN)
+    @GET("questions/new")
+    suspend fun loadQuestions() : List<IncomingQuestionModel>?
 
 }
