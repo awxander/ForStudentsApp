@@ -4,6 +4,7 @@ import com.example.forstudents.data.model.QuestionModel
 import com.example.forstudents.data.model.UserLoginModel
 import com.example.forstudents.data.model.UserRegisterModel
 import com.example.forstudents.data.api.ForStudentsApi
+import com.example.forstudents.data.model.IncomingQuestionModel
 import com.example.forstudents.domain.repository.ForStudentsRepository
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
@@ -14,7 +15,7 @@ import java.util.concurrent.TimeUnit
 
 class ForStudentsRepositoryImpl : ForStudentsRepository {
     companion object{
-        const val BASE_URL ="http://10.9.50.115:8080/"
+        const val BASE_URL ="http://198.168.8.100:8080/"
         const val READ_TIMEOUT_SECONDS = 5L
         const val CONNECT_TIMEOUT_SECONDS = 5L
         const val WRITE_TIMEOUT_SECONDS = 5L
@@ -47,6 +48,8 @@ class ForStudentsRepositoryImpl : ForStudentsRepository {
     override suspend fun loginUser(userLoginModel: UserLoginModel) = forStudentsApi.login(userLoginModel)
 
     override suspend fun registerUser(userRegisterModel: UserRegisterModel) = forStudentsApi.register(userRegisterModel)
+
     override suspend fun askQuestion(questionModel: QuestionModel) = forStudentsApi.askQuestion(questionModel)
 
+    override suspend fun loadQuestions() : List<IncomingQuestionModel>? = forStudentsApi.loadQuestions()
 }

@@ -1,4 +1,4 @@
-package com.example.forstudents.presentsion
+package com.example.forstudents.presentation
 
 data class FormState(
     val emailError: Int? = null,

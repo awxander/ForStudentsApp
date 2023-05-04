@@ -1,4 +1,4 @@
-package com.example.forstudents.fragments
+package com.example.forstudents.ui.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,8 +11,9 @@ import com.example.forstudents.MainActivity
 import com.example.forstudents.data.model.QuestionModel
 import com.example.forstudents.databinding.FragmentNewQuestionBinding
 import com.example.forstudents.domain.usecase.AskQuestionUseCase
-import com.example.forstudents.presentsion.QuestionState
-import com.example.forstudents.presentsion.QuestionViewModel
+import com.example.forstudents.domain.usecase.LoadQuestionsUseCase
+import com.example.forstudents.presentation.QuestionState
+import com.example.forstudents.presentation.viewmodel.QuestionViewModel
 import com.example.forstudents.util.printBackStackInLog
 
 class NewQuestionFragment : Fragment() {
@@ -20,7 +21,10 @@ class NewQuestionFragment : Fragment() {
     private lateinit var binding: FragmentNewQuestionBinding
     private val navController get() = findNavController()
     private val viewModel by lazy{
-        QuestionViewModel(AskQuestionUseCase((activity as MainActivity).repository))
+        QuestionViewModel(
+            AskQuestionUseCase((activity as MainActivity).repository),
+            LoadQuestionsUseCase((activity as MainActivity).repository),
+        )
     }
 //TODO убрать данный вызов, добавить di и дергать через viewModel()
 

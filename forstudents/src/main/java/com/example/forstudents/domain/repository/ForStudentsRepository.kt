@@ -1,9 +1,6 @@
 package com.example.forstudents.domain.repository
 
-import com.example.forstudents.data.model.QuestionModel
-import com.example.forstudents.data.model.TokenModel
-import com.example.forstudents.data.model.UserLoginModel
-import com.example.forstudents.data.model.UserRegisterModel
+import com.example.forstudents.data.model.*
 import retrofit2.http.Body
 
 interface ForStudentsRepository {
@@ -13,4 +10,6 @@ interface ForStudentsRepository {
     suspend fun registerUser(userRegisterModel: UserRegisterModel) : TokenModel
 
     suspend fun askQuestion(questionModel: QuestionModel)
+
+    suspend fun loadQuestions() : List<IncomingQuestionModel>?
 }

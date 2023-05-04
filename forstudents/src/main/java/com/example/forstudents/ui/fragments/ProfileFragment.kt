@@ -1,4 +1,4 @@
-package com.example.forstudents.fragments
+package com.example.forstudents.ui.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,18 +6,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.forstudents.R
-import com.example.forstudents.databinding.FragmentMessagesBinding
-import com.example.forstudents.databinding.FragmentUserAnswersBinding
+import com.example.forstudents.databinding.FragmentProfileBinding
+import com.example.forstudents.databinding.FragmentQuestionsBinding
 
-class UserAnswersFragment : Fragment() {
 
-    private lateinit var binding : FragmentUserAnswersBinding
+class ProfileFragment : Fragment() {
+
+    private lateinit var binding : FragmentProfileBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentUserAnswersBinding.inflate(inflater)
+        binding = FragmentProfileBinding.inflate(inflater)
         return binding.root
     }
 

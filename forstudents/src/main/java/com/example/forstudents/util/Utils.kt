@@ -40,7 +40,7 @@ fun Fragment.printBackStackInLog() {
         for (i in 0 until backStackCount) {
             val backStackEntry = fragmentManager?.getBackStackEntryAt(i)
             val fragmentTag = backStackEntry?.name
-            Log.i(TAG, "$i fragment on stack, tag: ${fragmentTag!!}")
+            Log.i(TAG, "$i fragment on stack, tag: $fragmentTag")
             // Do something with the fragment tag, e.g. log or use in UI
         }
     } else {

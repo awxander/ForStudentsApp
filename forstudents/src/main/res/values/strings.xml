@@ -4,10 +4,7 @@
     <string name="invalid_password">password must be more than 5 symbols</string>
     <string name="invalid_username">username can\'t be empty</string>
     <string name="different_passwords">passwords are differs</string>
-    <string name="very_long_text">long long long long long long long long long
-    long long long long long long long long long long long long long long long
-    long long long long long long long long long long long long
-    long long long long long long long long long long long long </string>
+    <string name="error">error : %s</string>
 
     <!-- Preference Titles -->
     <string name="messages_header">Messages</string>

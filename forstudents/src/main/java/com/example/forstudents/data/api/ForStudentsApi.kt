@@ -23,7 +23,7 @@ interface ForStudentsApi {
     suspend fun askQuestion(@Body questionModel: QuestionModel)
 
     @Headers(TOKEN)
-    @GET("questions/new")
+    @GET("questions/all")
     suspend fun loadQuestions() : List<IncomingQuestionModel>?
 
 }

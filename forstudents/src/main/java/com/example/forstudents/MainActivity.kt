@@ -8,10 +8,9 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import com.example.forstudents.data.repository.ForStudentsRepositoryImpl
 import com.example.forstudents.databinding.ActivityMainBinding
-import com.example.forstudents.fragments.MessagesFragment
-import com.example.forstudents.fragments.ProfileFragment
-import com.example.forstudents.fragments.QuestionsFragment
-import com.example.forstudents.presentsion.QuestionViewModel
+import com.example.forstudents.ui.fragments.MessagesFragment
+import com.example.forstudents.ui.fragments.ProfileFragment
+import com.example.forstudents.ui.fragments.QuestionsFragment
 
 class MainActivity : AppCompatActivity() {
 

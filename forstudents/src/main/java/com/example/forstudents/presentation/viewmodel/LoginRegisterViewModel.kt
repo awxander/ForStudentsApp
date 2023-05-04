@@ -1,4 +1,4 @@
-package com.example.forstudents.presentsion
+package com.example.forstudents.presentation.viewmodel
 
 
 import android.util.Log
@@ -12,6 +12,9 @@ import com.example.forstudents.data.model.UserLoginModel
 import com.example.forstudents.data.model.UserRegisterModel
 import com.example.forstudents.domain.usecase.LoginUseCase
 import com.example.forstudents.domain.usecase.RegisterUseCase
+import com.example.forstudents.presentation.FormState
+import com.example.forstudents.presentation.RegisterData
+import com.example.forstudents.presentation.RegisterLoginState
 
 import com.example.forstudents.util.TAG
 import kotlinx.coroutines.launch
@@ -21,7 +24,9 @@ class LoginRegisterViewModel(
     private val registerUseCase: RegisterUseCase
 ) : ViewModel() {
 
-    private val _registerLoginState: MutableLiveData<RegisterLoginState> = MutableLiveData(RegisterLoginState.Initial)
+    private val _registerLoginState: MutableLiveData<RegisterLoginState> = MutableLiveData(
+        RegisterLoginState.Initial
+    )
     val registerLoginState: LiveData<RegisterLoginState> = _registerLoginState
 
     private val _formState: MutableLiveData<FormState> = MutableLiveData()

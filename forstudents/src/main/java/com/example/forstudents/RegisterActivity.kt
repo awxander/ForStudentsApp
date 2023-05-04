@@ -7,7 +7,8 @@ import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import com.example.forstudents.data.model.UserRegisterModel
 import com.example.forstudents.databinding.ActivityRegisterBinding
-import com.example.forstudents.presentsion.*
+import com.example.forstudents.presentation.*
+import com.example.forstudents.presentation.viewmodel.LoginRegisterViewModel
 import com.example.forstudents.util.afterTextChanged
 
 class RegisterActivity : AppCompatActivity() {
