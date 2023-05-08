@@ -9,5 +9,5 @@ sealed interface QuestionState {
 
     object Success: QuestionState
 
-    data class Error(val text: String?) : QuestionState
+    data class Error(val text: String) : QuestionState
 }

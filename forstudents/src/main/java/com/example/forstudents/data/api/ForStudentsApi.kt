@@ -6,7 +6,6 @@ import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.POST
 
-
 //TODO, убрать, дергать токен из db
 private const val TOKEN = "Authorization: 8ddf1647-09d8-4850-a99a-a9dba5c737c8"
 

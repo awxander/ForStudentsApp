@@ -27,8 +27,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setBottomNav()
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)//выключил night mode
-        //TODO перенести в Application
+        setCurrentFragment(questionsFragment)
     }
 
     private fun setBottomNav() {

@@ -11,11 +11,11 @@ import com.example.forstudents.presentation.LoadQuestionsState
 import com.example.forstudents.presentation.QuestionState
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 class QuestionViewModel(
     private val askQuestionUseCase: AskQuestionUseCase,
     private val loadQuestionsUseCase: LoadQuestionsUseCase
-
 ) : ViewModel() {
 
     private val _questionState: MutableLiveData<QuestionState> =
@@ -36,7 +36,7 @@ class QuestionViewModel(
             } catch (rethrow: CancellationException) {
                 throw rethrow
             } catch (ex: Exception) {
-                _questionState.value = QuestionState.Error(ex.message)
+                _questionState.value = QuestionState.Error(ex.message.orEmpty())
             }
         }
     }
@@ -48,7 +48,7 @@ class QuestionViewModel(
                 val questions = loadQuestionsUseCase.execute()
                 _loadQuestionsState.value = LoadQuestionsState.Content(questions)
             } catch (ex: Exception) {
-                _questionState.value = QuestionState.Error(ex.message)
+                _questionState.value = QuestionState.Error(ex.message.orEmpty())
             }
         }
     }

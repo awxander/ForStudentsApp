@@ -12,10 +12,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_margin="10dp"
-        android:layout_marginTop="0dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
         android:ems="10"
-        android:hint="topic"
+        android:hint="@string/topic"
         android:inputType="textPersonName"
         android:padding="10dp"
         android:textSize="30sp" />
@@ -25,19 +27,18 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/askButton"
         android:layout_below="@+id/editTopic"
-        android:layout_margin="10dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginBottom="0dp"
-        android:padding="10dp"
+        android:layout_margin = "10dp"
+        app:hintEnabled="false"
         app:boxBackgroundColor="@color/white">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editQuestion"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="top|left"
-            android:hint="hint"
+            android:gravity="top|start"
+            android:hint="@string/question"
             android:textSize="25sp" />
+
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
@@ -47,6 +48,6 @@
         android:layout_alignParentBottom="true"
         android:layout_margin="10dp"
         android:layout_marginBottom="0dp"
-        android:text="done" />
+        android:text="@string/done" />
 
 </RelativeLayout>
