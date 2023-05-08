@@ -11,5 +11,5 @@ interface ForStudentsRepository {
 
     suspend fun askQuestion(questionModel: QuestionModel)
 
-    suspend fun loadQuestions() : List<IncomingQuestionModel>?
+    suspend fun loadQuestions() : List<IncomingQuestionModel>
 }

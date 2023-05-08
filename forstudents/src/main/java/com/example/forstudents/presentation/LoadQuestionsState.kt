@@ -7,7 +7,7 @@ sealed interface LoadQuestionsState{
 
     object Loading: LoadQuestionsState
 
-    data class Content(val questions: List<IncomingQuestionModel>?) : LoadQuestionsState
+    data class Content(val questions: List<IncomingQuestionModel>) : LoadQuestionsState
 
-    data class Error(val text: String?) : LoadQuestionsState
+    data class Error(val text: String) : LoadQuestionsState
 }

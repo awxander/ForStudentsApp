@@ -39,4 +39,10 @@ class IncomingQuestionsAdapter : RecyclerView.Adapter<IncomingQuestionsAdapter.I
     override fun onBindViewHolder(holder: IncomingQuestionHolder, position: Int) {
         holder.bind(incomingQuestions[position])
     }
+
+    fun insertQuestions(questions : List<IncomingQuestionModel>){
+        incomingQuestions.clear()
+        incomingQuestions.addAll(questions)
+        notifyDataSetChanged()
+    }
 }

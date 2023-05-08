@@ -23,6 +23,6 @@ interface ForStudentsApi {
 
     @Headers(TOKEN)
     @GET("questions/all")
-    suspend fun loadQuestions() : List<IncomingQuestionModel>?
+    suspend fun loadQuestions() : List<IncomingQuestionModel>
 
 }

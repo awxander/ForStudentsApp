@@ -51,5 +51,5 @@ class ForStudentsRepositoryImpl : ForStudentsRepository {
 
     override suspend fun askQuestion(questionModel: QuestionModel) = forStudentsApi.askQuestion(questionModel)
 
-    override suspend fun loadQuestions() : List<IncomingQuestionModel>? = forStudentsApi.loadQuestions()
+    override suspend fun loadQuestions() : List<IncomingQuestionModel> = forStudentsApi.loadQuestions()
 }
