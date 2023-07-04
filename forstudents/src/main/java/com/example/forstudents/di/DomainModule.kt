@@ -17,7 +17,7 @@ object DomainModule {
 
     @Provides
     @Singleton
-    fun provideQuestionViewModel(
+    fun provideQuestionViewModel(//TODO сделать через inject конструктора
         askQuestionUseCase: AskQuestionUseCase,
         loadQuestionsUseCase: LoadQuestionsUseCase
     ): QuestionViewModel {

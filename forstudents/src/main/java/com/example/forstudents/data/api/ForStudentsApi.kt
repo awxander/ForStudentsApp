@@ -7,7 +7,8 @@ import retrofit2.http.Headers
 import retrofit2.http.POST
 
 //TODO, убрать, дергать токен из db
-private const val TOKEN = "Authorization: 8ddf1647-09d8-4850-a99a-a9dba5c737c8"
+//token для sashok.tsibin@gmail.com Alexander2001
+private const val TOKEN = "Authorization: e81b1e05-db2a-45e9-b158-bd2c570fcd8b"
 
 interface ForStudentsApi {
 

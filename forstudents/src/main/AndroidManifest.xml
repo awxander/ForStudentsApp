@@ -13,22 +13,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ForStudents">
         <activity
-            android:name=".EnterActivity"
+            android:name=".ui.activity.MainActivity"
             android:exported="false" >
 
         </activity>
         <activity
-            android:name=".RegisterActivity"
+            android:name=".ui.activity.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".ui.activity.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.activity.EnterActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

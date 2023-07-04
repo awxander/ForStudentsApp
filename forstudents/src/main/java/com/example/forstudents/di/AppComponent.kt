@@ -1,13 +1,9 @@
 package com.example.forstudents.di
 
-import com.example.forstudents.MainActivity
-import com.example.forstudents.data.repository.ForStudentsRepositoryImpl
-import com.example.forstudents.domain.repository.ForStudentsRepository
-import com.example.forstudents.ui.fragments.NewQuestionFragment
-import com.example.forstudents.ui.fragments.QuestionsFragment
+import com.example.forstudents.ui.activity.MainActivity
+import com.example.forstudents.ui.fragment.NewQuestionFragment
+import com.example.forstudents.ui.fragment.QuestionsFragment
 import dagger.Component
-import dagger.Module
-import dagger.Provides
 import javax.inject.Singleton
 
 

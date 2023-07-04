@@ -5,7 +5,7 @@ import android.text.TextWatcher
 import android.util.Log
 import android.widget.EditText
 import androidx.fragment.app.Fragment
-import com.example.forstudents.MainActivity
+import com.example.forstudents.ui.activity.MainActivity
 
 
 fun EditText.afterTextChanged(afterTextChanged: (String) -> Unit) {
@@ -47,3 +47,6 @@ fun Fragment.printBackStackInLog() {
         Log.i(TAG, "empty stack")
     }
 }
+
+const val MIN_TOPIC_LENGTH = 4
+const val MIN_QUESTION_LENGTH = 6

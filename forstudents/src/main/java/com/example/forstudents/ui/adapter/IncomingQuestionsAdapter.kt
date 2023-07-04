@@ -8,19 +8,23 @@ import com.example.forstudents.R
 import com.example.forstudents.data.model.IncomingQuestionModel
 import com.example.forstudents.databinding.QuestionItemBinding
 
-class IncomingQuestionsAdapter : RecyclerView.Adapter<IncomingQuestionsAdapter.IncomingQuestionHolder>() {
+class IncomingQuestionsAdapter(private val onClick: (IncomingQuestionModel) -> Unit) :
+    RecyclerView.Adapter<IncomingQuestionsAdapter.IncomingQuestionHolder>() {
 
 
     private val incomingQuestions = ArrayList<IncomingQuestionModel>()
 
-    class IncomingQuestionHolder(view: View) :RecyclerView.ViewHolder(view){
+    class IncomingQuestionHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         private val itemBinding = QuestionItemBinding.bind(view)
 
-        fun bind(incomingQuestion: IncomingQuestionModel){
+        fun bind(incomingQuestion: IncomingQuestionModel, onClick: (IncomingQuestionModel) -> Unit) {
             itemBinding.apply {
                 tvTopic.text = incomingQuestion.topic
                 tvQuestion.text = incomingQuestion.body
+                itemView.setOnClickListener {
+                    onClick(incomingQuestion)
+                }
             }
         }
 
@@ -37,10 +41,10 @@ class IncomingQuestionsAdapter : RecyclerView.Adapter<IncomingQuestionsAdapter.I
     }
 
     override fun onBindViewHolder(holder: IncomingQuestionHolder, position: Int) {
-        holder.bind(incomingQuestions[position])
+        holder.bind(incomingQuestions[position], onClick)
     }
 
-    fun insertQuestions(questions : List<IncomingQuestionModel>){
+    fun insertQuestions(questions: List<IncomingQuestionModel>) {
         incomingQuestions.clear()
         incomingQuestions.addAll(questions)
         notifyDataSetChanged()

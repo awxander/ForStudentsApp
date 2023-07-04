@@ -15,7 +15,8 @@ import java.util.concurrent.TimeUnit
 
 class ForStudentsRepositoryImpl : ForStudentsRepository {
     companion object{
-        const val BASE_URL ="http://198.168.8.100:8080/"
+        const val BASE_URL ="http://192.168.8.100:8080/"
+//        const val BASE_URL ="http://10.9.47.163:8080/"
         const val READ_TIMEOUT_SECONDS = 5L
         const val CONNECT_TIMEOUT_SECONDS = 5L
         const val WRITE_TIMEOUT_SECONDS = 5L
