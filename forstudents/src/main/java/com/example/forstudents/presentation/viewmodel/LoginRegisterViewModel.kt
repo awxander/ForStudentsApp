@@ -12,9 +12,9 @@ import com.example.forstudents.data.model.UserLoginModel
 import com.example.forstudents.data.model.UserRegisterModel
 import com.example.forstudents.domain.usecase.LoginUseCase
 import com.example.forstudents.domain.usecase.RegisterUseCase
-import com.example.forstudents.presentation.FormState
-import com.example.forstudents.presentation.RegisterData
-import com.example.forstudents.presentation.RegisterLoginState
+import com.example.forstudents.presentation.state.FormState
+import com.example.forstudents.domain.entity.RegisterData
+import com.example.forstudents.presentation.state.RegisterLoginState
 
 import com.example.forstudents.util.TAG
 import kotlinx.coroutines.launch
@@ -82,7 +82,7 @@ class LoginRegisterViewModel(
 
     fun loginDataChanged(email: String, password: String) {
         if (!isEmailValid(email)) {
-            _formState.value = FormState(usernameError = R.string.invalid_email)
+            _formState.value = FormState(emailError = R.string.invalid_email)
         } else if (!isPasswordValid(password)) {
             _formState.value = FormState(passwordError = R.string.invalid_password)
         } else {

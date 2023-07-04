@@ -32,6 +32,8 @@
                 android:id="@+id/tvQuestion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="3"
                 android:text="my question is, what the fuck is going in Afganistan while i playing minecraft"
                 android:textSize="25sp" />
         </TableRow>

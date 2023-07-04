@@ -1,4 +1,4 @@
-package com.example.forstudents.presentation
+package com.example.forstudents.presentation.state
 
 
 sealed interface QuestionState {

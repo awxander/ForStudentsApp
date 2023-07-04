@@ -1,4 +1,4 @@
-package com.example.forstudents.presentation
+package com.example.forstudents.presentation.state
 
 import com.example.forstudents.data.model.TokenModel
 

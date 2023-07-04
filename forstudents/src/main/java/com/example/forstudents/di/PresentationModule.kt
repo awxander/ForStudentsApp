@@ -10,5 +10,4 @@ import javax.inject.Singleton
 @Module(includes = [DomainModule::class])
 object PresentationModule {
 
-
-    }
+}

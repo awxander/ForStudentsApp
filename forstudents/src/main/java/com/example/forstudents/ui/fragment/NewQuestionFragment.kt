@@ -1,4 +1,4 @@
-package com.example.forstudents.ui.fragments
+package com.example.forstudents.ui.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,16 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
-import com.example.forstudents.MainActivity
 import com.example.forstudents.appComponent
 import com.example.forstudents.data.model.QuestionModel
 import com.example.forstudents.databinding.FragmentNewQuestionBinding
-import com.example.forstudents.domain.usecase.AskQuestionUseCase
-import com.example.forstudents.domain.usecase.LoadQuestionsUseCase
-import com.example.forstudents.presentation.QuestionState
+import com.example.forstudents.presentation.state.QuestionState
 import com.example.forstudents.presentation.viewmodel.QuestionViewModel
-import com.example.forstudents.util.printBackStackInLog
 import javax.inject.Inject
 
 class NewQuestionFragment : Fragment() {
@@ -58,11 +53,11 @@ class NewQuestionFragment : Fragment() {
         when (state) {
             is QuestionState.Error -> {
                 showErrorMessage(state.text)
-                binding.askButton.isEnabled = true
             }
             QuestionState.Initial -> {
             }
             QuestionState.Loading -> {
+                binding.askButton.isEnabled = true
             }//TODO() добавить progress bar
             QuestionState.Success -> {
                 finish()

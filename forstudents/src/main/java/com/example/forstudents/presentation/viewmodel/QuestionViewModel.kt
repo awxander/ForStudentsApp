@@ -7,11 +7,12 @@ import androidx.lifecycle.viewModelScope
 import com.example.forstudents.data.model.QuestionModel
 import com.example.forstudents.domain.usecase.AskQuestionUseCase
 import com.example.forstudents.domain.usecase.LoadQuestionsUseCase
-import com.example.forstudents.presentation.LoadQuestionsState
-import com.example.forstudents.presentation.QuestionState
+import com.example.forstudents.presentation.state.LoadQuestionsState
+import com.example.forstudents.presentation.state.QuestionState
+import com.example.forstudents.util.MIN_QUESTION_LENGTH
+import com.example.forstudents.util.MIN_TOPIC_LENGTH
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 class QuestionViewModel(
     private val askQuestionUseCase: AskQuestionUseCase,
@@ -29,8 +30,8 @@ class QuestionViewModel(
     fun ask(questionModel: QuestionModel) {
         viewModelScope.launch {
             _questionState.value = QuestionState.Loading
-
             try {
+                checkQuestionsValid(questionModel)
                 askQuestionUseCase.execute(questionModel)
                 _questionState.value = QuestionState.Success
             } catch (rethrow: CancellationException) {
@@ -41,6 +42,13 @@ class QuestionViewModel(
         }
     }
 
+    private fun checkQuestionsValid(questionModel: QuestionModel) {
+        questionModel.apply {
+            if (body.length < MIN_QUESTION_LENGTH || topic.length < MIN_TOPIC_LENGTH)
+                throw java.lang.IllegalArgumentException("that small... question?\n try again brother")
+        }
+    }
+
     fun loadQuestions() {
         viewModelScope.launch {
             _loadQuestionsState.value = LoadQuestionsState.Loading
@@ -48,7 +56,7 @@ class QuestionViewModel(
                 val questions = loadQuestionsUseCase.execute()
                 _loadQuestionsState.value = LoadQuestionsState.Content(questions)
             } catch (ex: Exception) {
-                _questionState.value = QuestionState.Error(ex.message.orEmpty())
+                _loadQuestionsState.value = LoadQuestionsState.Error(ex.message.orEmpty())
             }
         }
     }

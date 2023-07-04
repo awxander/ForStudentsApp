@@ -1,4 +1,4 @@
-package com.example.forstudents
+package com.example.forstudents.ui.activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,7 +7,10 @@ import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import com.example.forstudents.data.model.UserRegisterModel
 import com.example.forstudents.databinding.ActivityRegisterBinding
+import com.example.forstudents.domain.entity.RegisterData
 import com.example.forstudents.presentation.*
+import com.example.forstudents.presentation.state.FormState
+import com.example.forstudents.presentation.state.RegisterLoginState
 import com.example.forstudents.presentation.viewmodel.LoginRegisterViewModel
 import com.example.forstudents.util.afterTextChanged
 

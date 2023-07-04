@@ -1,4 +1,4 @@
-package com.example.forstudents
+package com.example.forstudents.ui.activity
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,10 +7,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.forstudents.data.model.UserLoginModel
 import com.example.forstudents.databinding.ActivityLoginBinding
-import com.example.forstudents.presentation.FormState
+import com.example.forstudents.presentation.state.FormState
 import com.example.forstudents.presentation.viewmodel.LoginRegisterViewModel
 import com.example.forstudents.presentation.LoginRegisterViewModelFactory
-import com.example.forstudents.presentation.RegisterLoginState
+import com.example.forstudents.presentation.state.RegisterLoginState
 import com.example.forstudents.util.afterTextChanged
 
 class LoginActivity : AppCompatActivity() {
@@ -90,7 +90,6 @@ class LoginActivity : AppCompatActivity() {
 
     private fun handleFormState(state: FormState) {
         binding.apply {
-
             signInBtn.isEnabled = state.isDataValid
 
             if (state.emailError != null) {

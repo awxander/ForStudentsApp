@@ -1,16 +1,15 @@
-package com.example.forstudents
+package com.example.forstudents.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.animation.AnimationUtils
-import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
-import com.example.forstudents.data.repository.ForStudentsRepositoryImpl
+import com.example.forstudents.R
 import com.example.forstudents.databinding.ActivityMainBinding
-import com.example.forstudents.ui.fragments.MessagesFragment
-import com.example.forstudents.ui.fragments.ProfileFragment
-import com.example.forstudents.ui.fragments.QuestionsFragment
+import com.example.forstudents.ui.fragment.MessagesFragment
+import com.example.forstudents.ui.fragment.ProfileFragment
+import com.example.forstudents.ui.fragment.QuestionsFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -19,8 +18,6 @@ class MainActivity : AppCompatActivity() {
     private val profileFragment = ProfileFragment()
     private val messagesFragment = MessagesFragment()
     private val questionsFragment = QuestionsFragment()
-    val repository = ForStudentsRepositoryImpl()
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
