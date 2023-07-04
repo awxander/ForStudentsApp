@@ -24,4 +24,7 @@
     <string name="topic">topic</string>
     <string name="question">your question</string>
     <string name="done">done</string>
+    <string name="answer">answer</string>
+    <string name="question_body">question body</string>
+    <string name="username">username</string>
 </resources>
